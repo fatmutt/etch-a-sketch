@@ -3,29 +3,19 @@ body {
     padding: 0;
 }
 
- #container {
+ #board {
     display: grid;
-    grid-template-columns: [first] 200px [line2] 200px [line3] 200px [line4] 200px;
-    grid-template-rows: [first] 200px [line2] 200px [line3] 200px [line4] 200px;
-    grid-template-areas:
-    "div" 
-    "div"
-    "div"
-    "div"
-    "div" 
-    "div"
-    "div"
-    "div"
-    "div" 
-    "div"
-    "div"
-    "div"
-    "div" 
-    "div"
-    "div"
-    "div"
-    border: 1px solid black;
+    grid-template-columns: repeat(8, 1fr 1fr);
+    grid-template-rows: repeat(8, 1fr 1fr);
+    width: 500px;
+    height: 500px;
+    
 }
+
+/* .bird:hover {
+    background-color: black;
+    border-style: dashed;
+} */
 
 /*  #container {
     display: grid;
@@ -33,3 +23,7 @@ body {
     width: 560px;
     height: 560px;
  } */
+
+ .color {
+    background-color: red;
+ }
