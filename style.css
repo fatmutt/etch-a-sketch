@@ -1,29 +1,28 @@
 body {
     margin: 0;
     padding: 0;
+    background-color:blueviolet;
 }
-
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 300px;
+}
  #board {
     display: grid;
     grid-template-columns: repeat(8, 1fr 1fr);
     grid-template-rows: repeat(8, 1fr 1fr);
-    width: 500px;
-    height: 500px;
-    
+    width: 700px;
+    height: 600px;
+    background-color: white; 
 }
-
-/* .bird:hover {
-    background-color: black;
-    border-style: dashed;
-} */
-
-/*  #container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto;
-    width: 560px;
-    height: 560px;
- } */
 
  .color {
     background-color: red;
+ }
+
+
+ .clear {
+    background-color: white;
  }
