@@ -1,53 +1,50 @@
-
-
-
-/*  div creation in grid */
+// div creation in grid
 
 const board = document.querySelector('#board');
 
-const button = document.querySelector('#clear');
-
 createGrid = gridNumber => {
-    if (gridNumber === undefined) {
+    if (gridNumber === 'undefined') {
         gridNumber = 16;
     } else gridNumber = gridNumber;
 
     let gridSize = gridNumber * gridNumber;
-}
 
-for(x=0; x<256; x++) {
-    let square = document.createElement('div');
-    square.className = "bird";
-    document.getElementById('board').appendChild(square).style.border = "thin dashed";
+    for(i=0; i<gridSize; i++) {
+        let square = document.createElement('div');
+        square.className = ('box');
+        board.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
+        board.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
+        board.appendChild(square);
 
-    square.addEventListener('mouseover', function() {
-        square.className = 'color';
-            document.getElementsByClassName('color');
-    });
+        square.addEventListener('mouseover', function() {
+            square.className = 'color';
+                document.getElementsByClassName('color');
+        });   
+    } 
+};
 
-    
-    
-}
-/* button to clear color from Etch-A-Sketch */
+// div deletion before new grid is made
+function divDel() {
+    let squares = board.querySelectorAll('div');
+    squares.forEach((div) => div.remove());
+};
 
-const boxes = Array.from(document.getElementsByClassName('bird'));
+createGrid(16);
 
-clear.addEventListener('click', function() {
-    boxes.forEach(bird => {
-        bird.classList.remove('color');
-    });
-})
+// button for resizing grid
 
-/* btn.addEventListener('click', function(){
-    container.className = 'clear'
-        document.getElementbyClassName('clear');
-}) */
-
-
-/* button for resizing grid */
 const resizeButton = document.querySelector('#size');
 
-size.addEventListener('click', function(){
-    sketch = prompt('Enter Size: ', 16);
+resizeButton.addEventListener('click', function(){
+    
+    divDel();
+    let value = prompt('Enter Size Less Than 100: ');
+    if (typeof value === 'undefined') {
+        alert('Please Enter a Value');
+    }if (value>100 || value<=0) {
+        alert('Please enter a value between 100 and 0');
+    }
+    
+    createGrid(value);  
 });
 
